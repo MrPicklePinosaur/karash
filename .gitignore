@@ -1,5 +1,8 @@
 *.swp
 *.~undo-tree~
+.ccls-cache
+*.o
+karash
 
 Makefile.in
 /ar-lib
