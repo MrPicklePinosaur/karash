@@ -13,3 +13,7 @@ autoreconf -i
 ./configure
 make
 ```
+
+## Resources
+
+- [build your own shell](https://github.com/tokenrove/build-your-own-shell)

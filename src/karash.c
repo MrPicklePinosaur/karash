@@ -7,10 +7,8 @@
 #define true 1
 #define false 0
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
-
 #define exit_err(msg) do { perror(msg); exit(EXIT_FAILURE); } while (0)
+#define exit_suc() exit(EXIT_SUCCESS)
 
 char* read_line(void);
 char** parse_line(char* line);
@@ -44,7 +42,7 @@ read_line(void)
     size_t bufsize = 0;
 
     if (getline(&line, &bufsize, stdin) == -1) {
-	if (feof(stdin)) exit(EXIT_SUCCESS);
+	if (feof(stdin)) exit_suc();
 	else exit_err("getline failure");
     }
 
@@ -91,10 +89,10 @@ launch(char** args)
     s = posix_spawnp(&child_pid, args[0], NULL, NULL, args, environ);
     if (s != 0) exit_err("failed to launch");
 
-    printf("spawned child of pid: %d", child_pid);
+    printf("[%d+]\n", child_pid);
     s = waitpid(child_pid, &child_status, 0);
     if (s == -1) exit_err("waipid failed");
 
-    printf("child exit status: %d", child_status);
+    printf("child exit status: %d\n", child_status);
     return 0;
 }
