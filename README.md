@@ -7,6 +7,11 @@ simple shell for learning purposes
 
 </div>
 
+## Prerequisites
+
+Ensure that you have both flex (the lexical analyzer) as well as bison
+(parser generator) installed.
+
 ## Building the project
 ```sh
 autoreconf -i
