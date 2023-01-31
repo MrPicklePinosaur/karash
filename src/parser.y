@@ -12,14 +12,6 @@ void yyerror(const char* e);
 root: INT { printf("found integer"); }
 %%
 
-
-int
-main(int argc, char *argv[])
-{
-    yyparse();
-    return EXIT_SUCCESS;
-}
-
 void
 yyerror(const char* e)
 {
